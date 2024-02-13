@@ -20,7 +20,7 @@ pks2> ./dl_all_pks2.py
 pks2> cd ..
 ```
 
-Alternatively, they can be downloaded manually from [ERCA certificates DT](https://dtc.jrc.ec.europa.eu/dtc_public_key_certificates_dt.php.html) and [ERCA certificates ST](https://dtc.jrc.ec.europa.eu/dtc_public_key_certificates_st.php.html) and , but have to be renamed to their certificate reference (resp. unzipped in case of the root certificate) in this case.
+Alternatively, they can be downloaded manually from [ERCA certificates DT](https://dtc.jrc.ec.europa.eu/dtc_public_key_certificates_dt.php.html) and [ERCA certificates ST](https://dtc.jrc.ec.europa.eu/dtc_public_key_certificates_st.php.html), but have to be renamed to their certificate reference (resp. unzipped in case of the root certificate) in this case.
 
 ### BUILDING
 
@@ -29,7 +29,14 @@ In the root directory, execute
 > ./build-binaries-prod.sh
 ```
 
-(it may be necessary to once execute `go mod vendor` prior to the build script)
+Alternatively, execute
+```bash
+> go mod vendor
+```
+And then change the working directory to `cmd/dddparser` (or any of the other subdirectories of `cmd/`) and execute
+```bash
+> go build .
+```
 
 The project aims to have as little external dependencies as possible, currently there are the following external dependencies (most of them are actually not strictly required and could be removed with little effort):
 
@@ -51,7 +58,7 @@ The executables that are build are the following:
 
 ### Docker build
 
-The Dockerfile in the main directory will create a docker image containing only the `dddserver` executable. 
+The Dockerfile in the main directory will create a docker image containing only the `dddserver` executable.
 
 ### Testing
 
