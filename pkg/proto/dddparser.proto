@@ -1,0 +1,1499 @@
+// protoc *.proto --go_out=. --go-grpc_out=.
+
+syntax = "proto3";
+
+package proto;
+
+option go_package = ".;proto";
+
+service DDDParser {
+  rpc ParseVu (ParseVuRequest) returns (ParseVuResponse) {}
+  rpc ParseCard (ParseCardRequest) returns (ParseCardResponse) {}
+}
+
+message ParseVuRequest {
+  bytes data = 1;
+}
+
+message ParseVuResponse {
+  Vu vu = 1;
+}
+
+message ParseCardRequest {
+  bytes data = 1;
+}
+
+message ParseCardResponse {
+  Card card = 1;
+}
+
+message Card {
+  CardIccIdentificationFirstGen card_icc_identification_1 = 1;
+  SignatureFirstGen card_icc_identification_1_sig = 2;
+  CardIccIdentificationSecondGen card_icc_identification_2 = 3;
+  SignatureSecondGen card_icc_identification_2_sig = 4;
+  CardChipIdentification card_chip_identification_1 = 5;
+  SignatureFirstGen card_chip_identification_1_sig = 6;
+  CardChipIdentification card_chip_identification_2 = 7;
+  SignatureSecondGen card_chip_identification_2_sig = 8;
+  DriverCardApplicationIdentificationFirstGen driver_card_application_identification_1 = 9;
+  SignatureFirstGen driver_card_application_identification_1_sig = 10;
+  DriverCardApplicationIdentificationSecondGen  driver_card_application_identification_2 = 11;
+  SignatureSecondGen driver_card_application_identification_2_sig = 12;
+  CardEventDataFirstGen card_event_data_1 = 13;
+  SignatureFirstGen card_event_data_1_sig = 14;
+  CardEventDataSecondGen card_event_data_2 = 15;
+  SignatureSecondGen card_event_data_2_sig = 16;
+  CardFaultDataFirstGen card_fault_data_1 = 17;
+  SignatureFirstGen card_fault_data_1_sig = 18;
+  CardFaultDataSecondGen card_fault_data_2 = 19;
+  SignatureSecondGen card_fault_data_2_sig = 20;
+  CardDriverActivityFirstGen card_driver_activity_1 = 21;
+  SignatureFirstGen card_driver_activity_1_sig = 22;
+  CardDriverActivitySecondGen card_driver_activity_2 = 23;
+  SignatureSecondGen card_driver_activity_2_sig = 24;
+  CardVehiclesUsedFirstGen card_vehicles_used_1 = 25;
+  SignatureFirstGen card_vehicles_used_1_sig = 26;
+  CardVehiclesUsedSecondGen card_vehicles_used_2 = 27;
+  SignatureSecondGen card_vehicles_used_2_sig = 28;
+  CardPlaceDailyWorkPeriodFirstGen card_place_daily_work_period_1 = 29;
+  SignatureFirstGen card_place_daily_work_period_1_sig = 30;
+  CardPlaceDailyWorkPeriodSecondGen card_place_daily_work_period_2 = 31;
+  SignatureSecondGen card_place_daily_work_period_2_sig = 32;
+  CardCurrentUse card_current_use_1 = 33;
+  SignatureFirstGen card_current_use_1_sig = 34;
+  CardCurrentUse card_current_use_2 = 35;
+  SignatureSecondGen card_current_use_2_sig = 36;
+  CardControlActivityDataRecord card_control_activity_data_record_1 = 37;
+  SignatureFirstGen card_control_activity_data_record_1_sig = 38;
+  CardControlActivityDataRecord card_control_activity_data_record_2 = 39;
+  SignatureSecondGen card_control_activity_data_record_2_sig = 40;
+  LastCardDownload last_card_download_1 = 41;
+  SignatureFirstGen last_card_download_1_sig = 42;
+  LastCardDownload last_card_download_2 = 43;
+  SignatureSecondGen last_card_download_2_sig = 44;
+  CardIdentificationAndDriverCardHolderIdentification card_identification_and_driver_card_holder_identification_1 = 45;
+  SignatureFirstGen card_identification_and_driver_card_holder_identification_1_sig = 46;
+  CardIdentificationAndDriverCardHolderIdentification card_identification_and_driver_card_holder_identification_2 = 47;
+  SignatureSecondGen card_identification_and_driver_card_holder_identification_2_sig = 48;
+  CardDrivingLicenceInformation card_driving_licence_information_1 = 49;
+  SignatureFirstGen card_driving_licence_information_1_sig = 50;
+  CardDrivingLicenceInformation card_driving_licence_information_2 = 51;
+  SignatureSecondGen card_driving_licence_information_2_sig = 52;
+  SpecificConditionsFirstGen specific_conditions_1 = 53;
+  SignatureFirstGen specific_conditions_1_sig = 54;
+  SpecificConditionsSecondGen specific_conditions_2 = 55;
+  SignatureSecondGen specific_conditions_2_sig = 56;
+  CardVehicleUnitsUsed card_vehicle_units_used = 57;
+  SignatureSecondGen card_vehicle_units_used_sig = 58;
+  GNSSAccumulatedDriving gnss_accumulated_driving = 59;
+  SignatureSecondGen gnss_accumulated_driving_sig = 60;
+  CertificateFirstGen card_certificate = 61;
+  CertificateSecondGen card_ma_certificate = 62;
+  CertificateSecondGen card_sign_certificate = 63;
+  CertificateFirstGen member_state_certificate = 64;
+  CertificateSecondGen ca_certificate = 65;
+  CertificateSecondGen link_certificate = 66;
+  DriverCardApplicationIdentificationSecondGenV2 driver_card_application_identification_2_2 = 67;
+  SignatureSecondGen driver_card_application_identification_2_2_sig = 68;
+  CardPlaceAuthDailyWorkPeriod card_place_auth_daily_work_period = 69;
+  SignatureSecondGen card_place_auth_daily_work_period_sig = 70;
+  GNSSAuthAccumulatedDriving gnss_auth_accumulated_driving = 71;
+  SignatureSecondGen gnss_auth_accumulated_driving_sig = 72;
+  CardBorderCrossings card_border_crossings = 73;
+  SignatureSecondGen card_border_crossings_sig = 74;
+  CardLoadUnloadOperations card_load_unload_operations = 75;
+  SignatureSecondGen card_load_unload_operations_sig = 76;
+  CardLoadTypeEntries card_load_type_entries = 77;
+  SignatureSecondGen card_load_type_entries_sig = 78;
+  VuConfiguration vu_configuration = 79;
+  SignatureSecondGen vu_configuration_sig = 80;
+}
+
+message Vu {
+  VuOverviewFirstGen vu_overview_1 = 1;
+  VuOverviewSecondGen vu_overview_2 = 2;
+  repeated VuActivitiesFirstGen vu_activities_1 = 3;
+  repeated VuActivitiesSecondGen vu_activities_2 = 4;
+  repeated VuEventsAndFaultsFirstGen vu_events_and_faults_1 = 5;
+  repeated VuEventsAndFaultsSecondGen vu_events_and_faults_2 = 6;
+  repeated VuDetailedSpeedFirstGen vu_detailed_speed_1 = 7;
+  repeated VuDetailedSpeedSecondGen vu_detailed_speed_2 = 8;
+  repeated VuTechnicalDataFirstGen vu_technical_data_1 = 9;
+  repeated VuTechnicalDataSecondGen vu_technical_data_2 = 10;
+  // SecondGenV2 follows
+  VuDownloadInterfaceVersion vu_download_interface_version = 11;
+  VuOverviewSecondGenV2 vu_overview_2_2 = 12;
+  repeated VuActivitiesSecondGenV2 vu_activities_2_2 = 13;
+  repeated VuEventsAndFaultsSecondGenV2 vu_events_and_faults_2_2 = 14;
+  repeated VuTechnicalDataSecondGenV2 vu_technical_data_2_2 = 15;
+}
+
+message CardIccIdentificationFirstGen {
+  bool verified = 1;
+  uint32 clock_stop = 2; // ClockStop byte
+  ExtendedSerialNumberFirstGen card_extended_serial_number = 3;
+  string card_approval_number = 4; // CardApprovalNumber [8]byte
+  uint32 card_personaliser_id = 5; // ManufacturerCode byte
+  EmbedderIcAssemblerId embedder_ic_assembler_id = 6;
+  bytes ic_identifier = 7; // IcIdentifier [2]byte
+}
+
+message CardIccIdentificationSecondGen {
+  bool verified = 1;
+  uint32 clock_stop = 2; // ClockStop byte
+  ExtendedSerialNumberSecondGen card_extended_serial_number = 3;
+  string card_approval_number = 4; // CardApprovalNumber [8]byte
+  uint32 card_personaliser_id = 5; // ManufacturerCode byte
+  EmbedderIcAssemblerId embedder_ic_assembler_id = 6;
+  bytes ic_identifier = 7; // IcIdentifier [2]byte
+}
+
+message ExtendedSerialNumberFirstGen {
+  uint32 serial_number = 1;
+  MonthYear month_year = 2;
+  uint32 type = 3;
+  uint32 manufacturer_code = 4; // ManufacturerCode byte
+}
+
+message ExtendedSerialNumberSecondGen {
+  uint32 serial_number = 1;
+  MonthYear month_year = 2;
+  uint32 type = 3; // EquipmentType byte
+  uint32 manufacturer_code = 4; // ManufacturerCode byte
+}
+
+message EmbedderIcAssemblerId {
+  string country_code = 1; // CountryCode [2]byte
+  uint32 module_embedder = 2; // ModuleEmbedder BCDString
+  uint32 manufacturer_information = 3;
+}
+
+message MonthYear {
+  uint32 year = 1;
+  uint32 month = 2;
+}
+
+message SignatureFirstGen {
+  bytes signature = 1; // Signature [128]byte
+}
+
+message SignatureSecondGen {
+  bytes signature = 1; // Signature []byte size=64..132
+}
+
+message CardChipIdentification {
+  bool verified = 1;
+  bytes ic_serial_number = 2; // [4]byte
+  bytes ic_manufacturing_reference = 3; // [4]byte
+}
+
+message DriverCardApplicationIdentificationFirstGen {
+  bool verified = 1;
+  uint32 type_of_tachograph_card_id = 2; // EquipmentType byte
+  bytes card_structure_version = 3; // CardStructureVersion [2]byte
+  uint32 no_of_events_per_type = 4; // NoOfEventsPerType byte
+  uint32 no_of_faults_per_type = 5; // NoOfFaultsPerType byte
+  uint32 activity_structure_length = 6; // CardActivityLengthRange uint16
+  uint32 no_of_card_vehicle_records = 7; // NoOfCardVehicleRecords uint16
+  uint32 no_of_card_place_records = 8; // NoOfCardPlaceRecordsFirstGen byte
+}
+
+message DriverCardApplicationIdentificationSecondGen {
+  bool verified = 1;
+  uint32 type_of_tachograph_card_id = 2; // EquipmentType byte
+  bytes card_structure_version = 3; // CardStructureVersion [2]byte
+  uint32 no_of_events_per_type = 4; // NoOfEventsPerType byte
+  uint32 no_of_faults_per_type = 5; // NoOfFaultsPerType byte
+  uint32 activity_structure_length = 6; // CardActivityLengthRange uint16
+  uint32 no_of_card_vehicle_records = 7; // NoOfCardVehicleRecords uint16
+  uint32 no_of_card_place_records = 8; // NoOfCardPlaceRecordsSecondGen uint16
+  uint32 no_of_gnss_ad_records = 9; // NoOfGNSSADRecords uint16
+  uint32 no_of_specific_condition_records = 10; // NoOfSpecificConditionRecords uint16
+  uint32 no_of_card_vehicle_unit_records = 11; // NoOfCardVehicleUnitRecords uint16
+}
+
+message DriverCardApplicationIdentificationSecondGenV2 {
+  bool verified = 1;
+  uint32 length_of_following_data = 2; // LengthOfFollowingData uint16
+  uint32 no_of_border_crossing_records = 3; // NoOfBorderCrossingRecords uint16
+  uint32 no_of_load_unload_records = 4; // NoOfLoadUnloadRecords uint16
+  uint32 no_of_load_type_entry_records = 5; // NoOfLoadTypeEntryRecords uint16
+  uint32 vu_configuration_length_range = 6; // VuConfigurationLengthRange uint16
+}
+
+message CardEventDataFirstGen {
+  bool verified = 1;
+  message CardEventRecordsArrayElement {
+    repeated CardEventRecord card_event_records = 1;
+  }
+  repeated CardEventRecordsArrayElement card_event_records_array = 2; // [6]struct {...}
+}
+
+message CardEventRecord {
+  uint32 event_type = 1; // byte
+  int64 event_begin_time = 2; // TimeReal
+  int64 event_end_time = 3; // TimeReal
+  VehicleRegistrationIdentification event_vehicle_registration = 4;
+}
+
+message VehicleRegistrationIdentification {
+  uint32 vehicle_registration_nation = 1; // byte
+  string vehicle_registration_number = 2; // VehicleRegistrationNumber (codepage + 13 bytes)
+}
+
+message CardEventDataSecondGen {
+  bool verified = 1;
+  message CardEventRecordsArrayElement {
+    repeated CardEventRecord card_event_records = 1;
+  }
+  repeated CardEventRecordsArrayElement card_event_records_array = 2; // [11]struct {...}
+}
+
+message CardFaultDataFirstGen {
+  bool verified = 1;
+  message CardFaultRecordsArrayElement {
+    repeated CardFaultRecord card_fault_records = 1;
+  }
+  repeated CardFaultRecordsArrayElement card_fault_records_array = 2; // [2]struct{...}
+}
+
+message CardFaultRecord {
+  uint32 fault_type = 1; // EventFaultType byte
+  int64 fault_begin_time = 2; // TimeReal
+  int64 fault_end_time = 3; // TimeReal
+  VehicleRegistrationIdentification fault_vehicle_registration = 4;
+}
+
+message CardFaultDataSecondGen {
+  bool verified = 1;
+  message CardFaultRecordsArrayElement {
+    repeated CardFaultRecord card_fault_records = 1;
+  }
+  repeated CardFaultRecordsArrayElement card_fault_records_array = 2; // [2]struct{...}
+}
+
+message CardDriverActivityFirstGen {
+  bool verified = 1;
+  uint32 activity_pointer_oldest_day_record = 2; // CardActivityLengthRange uint16
+  uint32 activity_pointer_newest_record = 3; // CardActivityLengthRange uint16
+  repeated CardActivityDailyRecord decoded_activity_daily_records = 4; // decoded! activity_daily_records is []byte
+}
+
+message CardActivityDailyRecord {
+  uint32 activity_previous_record_length = 1; // CardActivityLengthRange uint16
+  uint32 activity_record_length = 2; // CardActivityLengthRange uint16
+  int64 activity_record_date = 3; // TimeReal
+  uint32 activity_daily_presence_counter = 4; // DailyPresenceCounter BCDString
+  uint32 activity_day_distance = 5; // Distance uint16
+  repeated ActivityChangeInfo activity_change_info = 6;
+}
+
+message ActivityChangeInfo {// decoded!
+  bool driver = 1;
+  bool team = 2;
+  bool card_present = 3;
+  uint32 work_type = 4; // byte
+  uint32 minutes = 5;
+}
+
+message CardDriverActivitySecondGen {
+  bool verified = 1;
+  uint32 activity_pointer_oldest_day_record = 2; // CardActivityLengthRange uint16
+  uint32 activity_pointer_newest_record = 3; // CardActivityLengthRange uint16
+  repeated CardActivityDailyRecord decoded_activity_daily_records = 4; // decoded! activity_daily_records is []byte
+}
+
+message CardVehiclesUsedFirstGen {
+  bool verified = 1;
+  uint32 vehicle_pointer_newest_record = 2; // NoOfCardVehicleRecords uint16
+  repeated CardVehicleRecordFirstGen card_vehicle_records = 3;
+}
+
+message CardVehicleRecordFirstGen {
+  uint32 vehicle_odometer_begin = 1; // OdometerShort [3]byte -> decoded uint32
+  uint32 vehicle_odometer_end = 2; // OdometerShort [3]byte -> decoded uint32
+  int64 vehicle_first_use = 3; // TimeReal
+  int64 vehicle_last_use = 4; // TimeReal
+  VehicleRegistrationIdentification vehicle_registration = 5;
+  uint32 vu_data_block_counter = 6; // VuDataBlockCounter BCDString
+}
+
+message CardVehiclesUsedSecondGen {
+  bool verified = 1;
+  uint32 vehicle_pointer_newest_record = 2; // NoOfCardVehicleRecords uint16
+  repeated CardVehicleRecordSecondGen card_vehicle_records = 3;
+}
+
+message CardVehicleRecordSecondGen {
+  uint32 vehicle_odometer_begin = 1; // OdometerShort [3]byte -> decoded uint32
+  uint32 vehicle_odometer_end = 2; // OdometerShort [3]byte -> decoded uint32
+  int64 vehicle_first_use = 3; // TimeReal
+  int64 vehicle_last_use = 4; // TimeReal
+  VehicleRegistrationIdentification vehicle_registration = 5;
+  uint32 vu_data_block_counter = 6; // VuDataBlockCounter BCDString
+  string vehicle_identification_number = 7; // VehicleIdentificationNumber decoded: string
+}
+
+message CardPlaceDailyWorkPeriodFirstGen {
+  bool verified = 1;
+  uint32 place_pointer_newest_record = 2; // NoOfCardPlaceRecordsFirstGen byte
+  repeated PlaceRecordFirstGen place_records = 3;
+}
+
+message PlaceRecordFirstGen {
+  int64 entry_time = 1; // TimeReal
+  uint32 entry_type_daily_work_period = 2; // EntryTypeDailyWorkPeriodFirstGen byte
+  uint32 daily_work_period_country = 3; // NationNumeric byte
+  uint32 daily_work_period_region = 4; // NationNumeric byte
+  uint32 vehicle_odometer_value = 5; // OdometerShort [3]byte -> decoded uint32
+}
+
+message CardPlaceDailyWorkPeriodSecondGen {
+  bool verified = 1;
+  uint32 place_pointer_newest_record = 2; // NoOfCardPlaceRecordsSecondGen uint16
+  repeated PlaceRecordSecondGen place_records = 3;
+}
+
+message PlaceRecordSecondGen {
+  int64 entry_time = 1; // TimeReal
+  uint32 entry_type_daily_work_period = 2; // EntryTypeDailyWorkPeriodFirstGen byte
+  uint32 daily_work_period_country = 3; // NationNumeric byte
+  uint32 daily_work_period_region = 4; // NationNumeric byte
+  uint32 vehicle_odometer_value = 5; // OdometerShort [3]byte -> decoded uint32
+  GNSSPlaceRecord entry_gnss_place_record = 6;
+}
+
+message CardPlaceAuthDailyWorkPeriod {
+  bool verified = 1;
+  uint32 place_auth_pointer_newest_record = 2; // NoOfCardPlaceRecordsSecondGen uint16
+  repeated PlaceAuthStatusRecord place_auth_status_records = 3;
+}
+
+message PlaceAuthStatusRecord {
+  int64 entry_time = 1; // TimeReal
+  uint32 authentication_status = 2; // PositionAuthenticationStatus byte
+}
+
+message PlaceAuthRecord {
+  int64 entry_time = 1; // TimeReal
+  uint32 entry_type_daily_work_period = 2; // EntryTypeDailyWorkPeriodFirstGen byte
+  uint32 daily_work_period_country = 3; // NationNumeric byte
+  uint32 daily_work_period_region = 4; // NationNumeric byte
+  uint32 vehicle_odometer_value = 5; // OdometerShort [3]byte -> decoded uint32
+  GNSSPlaceAuthRecord entry_gnss_place_record = 6;
+}
+
+message GNSSPlaceRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 gnss_accuracy = 2; // GNSSAccuracy byte
+  GeoCoordinates geo_coordinates = 3;
+}
+
+message GNSSPlaceAuthRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 gnss_accuracy = 2; // GNSSAccuracy byte
+  GeoCoordinates geo_coordinates = 3;
+  uint32 authentication_status = 4; // PositionAuthenticationStatus byte
+}
+
+message GeoCoordinates {// decoded
+  double latitude = 1;
+  double longitude = 2;
+}
+
+message CardCurrentUse {
+  bool verified = 1;
+  int64 session_open_time = 2; // TimeReal
+  VehicleRegistrationIdentification session_open_vehicle = 3;
+}
+
+message CardControlActivityDataRecord {
+  bool verified = 1;
+  uint32 control_type = 2; // ControlType byte
+  int64 control_time = 3; // TimeReal
+  FullCardNumber control_card_number = 4;
+  VehicleRegistrationIdentification control_vehicle_registration = 5;
+  int64 control_download_period_begin = 6; // TimeReal
+  int64 control_download_period_end = 7; // TimeReal
+}
+
+message FullCardNumber {
+  uint32 card_type = 1; // EquipmentTyp byte
+  uint32 card_issuing_member_state = 2; // NationNumeric byte
+  string card_number = 3; // CardNumber [16]byte -> decoded string
+}
+
+message LastCardDownload {
+  bool verified = 1;
+  int64 last_card_download = 2; // TimeReal
+}
+
+message CardIdentificationAndDriverCardHolderIdentification {
+  bool verified = 1;
+  CardIdentification card_identification = 2;
+  DriverCardHolderIdentification driver_card_holder_identification = 3;
+}
+
+message CardIdentification {
+  uint32 card_issuing_member_state = 1; // NationNumeric
+  string card_number = 2; // CardNumber [16]byte -> decoded string
+  string card_issuing_authority_name = 3; // Name (codepage + [35]byte), decoded string
+  int64 card_issue_date = 4; // TimeReal
+  int64 card_validity_begin = 5; // TimeReal
+  int64 card_expiry_date = 6; // TimeReal
+}
+
+message DriverCardHolderIdentification {
+  HolderName card_holder_name = 1;
+  Datef card_holder_birth_date = 2;
+  string card_holder_preferred_language = 3; // Language [2]byte -> decoded string
+}
+
+message HolderName {
+  string holder_surname = 1; // Name (codepage + [35]byte), decoded string
+  string holder_first_names = 2; // Name (codepage + [35]byte), decoded string
+}
+
+message Datef {
+  uint32 year = 1; // BCDString
+  uint32 month = 2; // BCDString
+  uint32 day = 3; // BCDString
+}
+
+message CardDrivingLicenceInformation {
+  bool verified = 1;
+  string driving_licence_issuing_authority = 2; // Name (codepage + [35]byte), decoded string
+  uint32 driving_licence_issuing_nation = 3; // NationNumeric byte
+  string driving_licence_number = 4; // DrivingLicenceNumber [16]byte -> decoded string
+}
+
+message SpecificConditionsFirstGen {
+  bool verified = 1;
+  uint32 condition_pointer_newest_record = 2; // oOfSpecificConditionRecords uint16
+  repeated SpecificConditionRecord specific_condition_records = 3;
+}
+
+message SpecificConditionRecord {
+  int64 entry_time = 1; // TimeReal
+  uint32 specific_condition_type = 2; // SpecificConditionType byte
+}
+
+message SpecificConditionsSecondGen {
+  bool verified = 1;
+  uint32 condition_pointer_newest_record = 2; // NoOfSpecificConditionRecords uint16
+  repeated SpecificConditionRecord specific_condition_records = 3;
+}
+
+message CardVehicleUnitsUsed {
+  bool verified = 1;
+  uint32 vehicle_unit_pointer_newest_record = 2; // NoOfCardVehicleUnitRecords uint16
+  repeated CardVehicleUnitRecord card_vehicle_unit_records = 3;
+}
+
+message CardVehicleUnitRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 manufacturer_code = 2; // ManufacturerCode byte
+  uint32 device_id = 3; // byte
+  bytes vu_software_version = 4; // VuSoftwareVersion [4]byte
+}
+
+message GNSSAccumulatedDriving {
+  bool verified = 1;
+  uint32 gnss_ad_pointer_newest_record = 2; // NoOfGNSSADRecords uint16
+  repeated GNSSAccumulatedDrivingRecord gnss_accumulated_driving_records = 3;
+}
+
+message GNSSAccumulatedDrivingRecord {
+  int64 time_stamp = 1; // TimeReal
+  GNSSPlaceRecord gnss_place_record = 2;
+  uint32 vehicle_odometer_value = 3; // OdometerShort [3]byte -> decoded uint32
+}
+
+message GNSSAuthAccumulatedDriving {
+  bool verified = 1;
+  uint32 gnss_auth_ad_pointer_newest_record = 2; // NoOfGNSSADRecords uint16
+  repeated GNSSAuthStatusADRecord gnss_auth_status_ad_records = 3;
+}
+
+message GNSSAuthStatusADRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 authentication_status = 2; // PositionAuthenticationStatus byte
+}
+
+message CardBorderCrossings {
+  bool verified = 1;
+  uint32 border_crossing_pointer_newest_record = 2; // NoOfBorderCrossingRecords uint16
+  repeated CardBorderCrossingRecord card_border_crossing_records = 3;
+}
+
+message CardBorderCrossingRecord {
+  bool verified = 1;
+  uint32 country_left = 2; // NationNumeric byte
+  uint32 country_entered = 3; // NationNumeric byte
+  GNSSPlaceAuthRecord gnss_place_auth_record = 4;
+  uint32 vehicle_odometer_value = 5; // OdometerShort [3]byte -> decoded uint32
+}
+
+message CardLoadUnloadOperations {
+  bool verified = 1;
+  uint32 load_unload_pointer_newest_record = 2; // NoOfLoadUnloadRecords uint16
+  repeated CardLoadUnloadRecord card_load_unload_records = 3;
+}
+
+message CardLoadUnloadRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 operation_type = 2; // OperationType byte
+  GNSSPlaceAuthRecord gnss_place_auth_record = 3;
+  uint32 vehicle_odometer_value = 4; // OdometerShort [3]byte -> decoded uint32
+}
+
+message CardLoadTypeEntries {
+  bool verified = 1;
+  uint32 load_type_entry_pointer_newest_record = 2; // NoOfLoadTypeEntryRecords uint16
+  repeated CardLoadTypeEntryRecord card_load_type_entry_records = 3;
+}
+
+message CardLoadTypeEntryRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 load_type_entered = 2; // LoadType byte
+}
+
+message VuConfiguration {
+  bool verified = 1;
+  bytes configuration = 2;
+}
+
+message CertificateFirstGen {
+  bytes certificate = 1; // [194]byte
+  DecodedCertificateFirstGen decoded_certificate = 2;
+}
+
+message DecodedCertificateFirstGen {
+  uint64 certificate_holder_reference = 1;
+  uint64 certificate_authority_reference = 2;
+  int64 end_of_validity = 3;
+  string rsa_modulus = 4; // big int
+  string rsa_exponent = 5; // big int
+}
+
+message CertificateSecondGen {
+  bytes certificate = 1; // 204..341 bytes
+  DecodedCertificateSecondGen decoded_certificate = 2;
+}
+
+message DecodedCertificateSecondGen {
+  message CertificateBody {
+    uint32 certificate_profile_identifier = 1; // byte
+    uint64 certificate_authority_reference = 2;
+    bytes certificate_holder_authorisation = 3; // [7]byte
+    message PublicKey {
+      repeated int64 domain_parameters = 1; // asn1.ObjectIdentifier
+      message PublicPoint {
+        string x = 1; // big.Int
+        string y = 2; // big.Int
+      }
+      PublicPoint public_point = 2;
+    }
+    PublicKey public_key = 4;
+    uint64 certificate_holder_reference = 5;
+    int64 certificate_effective_date = 6;
+    int64 certificate_expiration_date = 7;
+  }
+  CertificateBody certificate_body = 1;
+  message ECCCertificateSignature {
+    string R = 1; // big.Int
+    string S = 2; // big.Int
+  }
+  ECCCertificateSignature ecc_certificate_signature = 2;
+  bool valid = 3;
+}
+
+message VuOverviewFirstGen {
+  bool verified = 1;
+  CertificateFirstGen member_state_certificate = 2; // MemberStateCertificateFirstGen CertificateFirstGen
+  CertificateFirstGen vu_certificate = 3; // VuCertificateFirstGen CertificateFirstGen
+  string vehicle_identification_number = 4; // VehicleIdentificationNumber [17]byte -> decoded string
+  VehicleRegistrationIdentification vehicle_registration_identification = 5;
+  int64 current_date_time = 6; // CurrentDateTime TimeReal
+  VuDownloadablePeriod vu_downloadable_period = 7;
+  uint32 card_slots_status = 8; // CardSlotsStatus byte
+  VuDownloadActivityDataFirstGen vu_download_activity_data = 9;
+  VuCompanyLocksDataFirstGen vu_company_locks_data = 10;
+  VuControlActivityDataFirstGen vu_control_activity_data = 11;
+  SignatureFirstGen signature = 12;
+}
+
+message VuDownloadablePeriod {
+  int64 min_downloadable_time = 1; // TimeReal
+  int64 max_downloadable_time = 2; // TimeReal
+}
+
+message VuDownloadActivityDataFirstGen {
+  int64 downloading_time = 1; // TimeReal
+  FullCardNumber full_card_number = 2;
+  string company_or_workshop_name = 3; // Name (codepage + [35]byte), decoded string
+}
+
+message VuCompanyLocksDataFirstGen {
+  uint32 no_of_locks = 1; // byte
+  repeated VuCompanyLocksRecordFirstGen vu_company_locks_records = 2;
+}
+
+message VuCompanyLocksRecordFirstGen {
+  int64 lock_in_time = 1; // TimeReal
+  int64 lock_out_time = 2; // TimeReal
+  string company_name = 3; // Name (codepage + [35]byte), decoded string
+  string company_address = 4; // Address (codepage + [35]byte), decoded string
+  FullCardNumber company_card_number = 5;
+}
+
+message VuControlActivityDataFirstGen {
+  uint32 no_of_controls = 1; // byte
+  repeated VuControlActivityRecordFirstGen vu_control_activity_records = 2;
+}
+
+message VuControlActivityRecordFirstGen {
+  uint32 control_type = 1; // ControlType byte
+  int64 control_time = 2; // TimeReal
+  FullCardNumber control_card_number = 3;
+  int64 download_period_begin_time = 4; // TimeReal
+  int64 download_period_end_time = 5; // TimeReal
+}
+
+message VuDownloadInterfaceVersion {
+  bool verified = 1;
+  bytes download_interface_version = 2; // [2]byte
+}
+
+message VuOverviewSecondGen {
+  bool verified = 1;
+  MemberStateCertificateRecordArray member_state_certificate_record_array = 2;
+  VuCertificateRecordArray vu_certificate_record_array = 3;
+  VehicleIdentificationNumberRecordArray vehicle_identification_number_record_array = 4;
+  VehicleRegistrationNumberRecordArray vehicle_registration_number_record_array = 5;
+  CurrentDateTimeRecordArray current_date_time_record_array = 6;
+  VuDownloadablePeriodRecordArray vu_downloadable_period_record_array = 7;
+  CardSlotsStatusRecordArray card_slots_status_record_array = 8;
+  VuDownloadActivityDataRecordArray vu_download_activity_data_record_array = 9;
+  VuCompanyLocksRecordArray vu_company_locks_record_array = 10;
+  VuControlActivityRecordArray vu_control_activity_record_array = 11;
+  SignatureRecordArray signature_record_array = 12;
+}
+
+message VuOverviewSecondGenV2 {
+  bool verified = 1;
+  MemberStateCertificateRecordArray member_state_certificate_record_array = 2;
+  VuCertificateRecordArray vu_certificate_record_array = 3;
+  VehicleIdentificationNumberRecordArray vehicle_identification_number_record_array = 4;
+  VehicleRegistrationIdentificationRecordArray vehicle_registration_identification_record_array = 5;
+  CurrentDateTimeRecordArray current_date_time_record_array = 6;
+  VuDownloadablePeriodRecordArray vu_downloadable_period_record_array = 7;
+  CardSlotsStatusRecordArray card_slots_status_record_array = 8;
+  VuDownloadActivityDataRecordArray vu_download_activity_data_record_array = 9;
+  VuCompanyLocksRecordArray vu_company_locks_record_array = 10;
+  VuControlActivityRecordArray vu_control_activity_record_array = 11;
+  SignatureRecordArray signature_record_array = 12;
+}
+
+message VuActivitiesFirstGen {
+  bool verified = 1;
+  int64 time_real = 2; // TimeReal
+  uint32 odometer_value_midnight = 3; // OdometerValueMidnight OdometerShort [3]byte -> decoded uint32
+  VuCardIWData vu_card_iw_data = 4;
+  VuActivityDailyDataFirstGen vu_activity_daily_data = 5;
+  VuPlaceDailyWorkPeriodDataFirstGen vu_place_daily_work_period_data = 6;
+  VuSpecificConditionDataFirstGen vu_specific_condition_data = 7;
+  SignatureFirstGen signature = 8;
+}
+
+message MemberStateCertificateRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated CertificateSecondGen records = 4; // MemberStateCertificateSecondGen CertificateSecondGen
+}
+
+message VuCertificateRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated CertificateSecondGen records = 4; // VuCertificateSecondGen CertificateSecondGen
+}
+
+message VehicleIdentificationNumberRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated string records = 4; // VehicleIdentificationNumber [17]byte
+}
+
+message VehicleRegistrationIdentificationRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VehicleRegistrationIdentification records = 4;
+}
+
+message VehicleRegistrationNumberRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated string records = 4; // VehicleRegistrationNumber (codepage+[13]byte) -> decoded string
+}
+
+message CurrentDateTimeRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated int64 records = 4; // TimeReal
+}
+
+message VuDownloadablePeriodRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuDownloadablePeriod records = 4;
+}
+
+message CardSlotsStatusRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated uint32 records = 4; // CardSlotsStatus byte
+}
+
+message VuDownloadActivityDataRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuDownloadActivityDataSecondGen records = 4;
+}
+
+message VuDownloadActivityDataSecondGen {
+  int64 downloading_time = 1; // TimeReal
+  FullCardNumberAndGeneration full_card_number_and_generation = 2;
+  string company_or_workshop_name = 3; // Name (codepage + [35]byte), decoded string
+}
+
+message FullCardNumberAndGeneration {
+  FullCardNumber full_card_number = 1;
+  uint32 generation = 2; // byte
+}
+
+message VuCompanyLocksRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuCompanyLocksRecordSecondGen records = 4;
+}
+
+message VuCompanyLocksRecordSecondGen {
+  int64 lock_in_time = 1; // TimeReal
+  int64 lock_out_time = 2; // TimeReal
+  string company_name = 3; // Name (codepage + [35]byte), decoded string
+  string company_address = 4; // Address (codepage + [35]byte), decoded string
+  FullCardNumberAndGeneration company_card_number_and_generation = 5;
+}
+
+message VuControlActivityRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuControlActivityRecordSecondGen records = 4;
+}
+
+message VuControlActivityRecordSecondGen {
+  uint32 control_type = 1; // ControlType byte
+  int64 control_time = 2; // TimeReal
+  FullCardNumberAndGeneration control_card_number_and_generation = 3;
+  int64 download_period_begin_time = 4; // TimeReal
+  int64 download_period_end_time = 5; // TimeReal
+}
+
+message SignatureRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated SignatureSecondGen records = 4;
+}
+
+message VuCardIWData {
+  uint32 no_of_iw_records = 1; // uint16
+  repeated VuCardIWRecordFirstGen vu_card_iw_records = 2;
+}
+
+message VuCardIWRecordFirstGen {
+  HolderName card_holder_name = 1;
+  FullCardNumber full_card_number = 2;
+  int64 card_expiry_date = 3; // TimeReal
+  int64 card_insertion_time = 4; // TimeReal
+  uint32 vehicle_odometer_value_at_insertion = 5; // OdometerShort [3]byte -> decoded uint32
+  uint32 card_slot_number = 6; // CardSlotNumber byte
+  int64 card_withdrawal_time = 7; // TimeReal
+  uint32 vehicle_odometer_value_at_withdrawal = 8; // OdometerShort [3]byte -> decoded uint32
+  PreviousVehicleInfoFirstGen previous_vehicle_info = 9;
+  uint32 manual_input_flag = 10; // ManualInputFlag byte
+}
+
+message PreviousVehicleInfoFirstGen {
+  VehicleRegistrationIdentification vehicle_registration_identification = 1;
+  int64 card_withdrawal_time = 2; // TimeReal
+}
+
+message VuActivityDailyDataFirstGen {
+  uint32 no_of_activity_changes = 1; // uint16
+  repeated ActivityChangeInfo activity_change_info = 2;
+}
+
+message VuPlaceDailyWorkPeriodDataFirstGen {
+  uint32 no_of_place_records = 1; // byte
+  repeated VuPlaceDailyWorkPeriodRecordFirstGen vu_place_daily_work_period_records = 2;
+}
+
+message VuPlaceDailyWorkPeriodRecordFirstGen {
+  FullCardNumber full_card_number = 1;
+  PlaceRecordFirstGen place_record = 2;
+}
+
+message VuSpecificConditionDataFirstGen {
+  uint32 no_of_specific_condition_records = 1; // uint16
+  repeated SpecificConditionRecord specific_condition_records = 2;
+}
+
+message VuActivitiesSecondGen {
+  bool verified = 1;
+  DateOfDayDownloadedRecordArray date_of_day_downloaded_record_array = 2;
+  OdometerValueMidnightRecordArray odometer_value_midnight_record_array = 3;
+  VuCardIWRecordArray vu_card_iw_record_array = 4;
+  VuActivityDailyRecordArray vu_activity_daily_record_array = 5;
+  VuPlaceDailyWorkPeriodRecordArray vu_place_daily_work_period_record_array = 6;
+  VuGNSSADRecordArray vu_gnss_ad_record_array = 7;
+  VuSpecificConditionRecordArray vu_specific_condition_record_array = 8;
+  SignatureRecordArray signature_record_array = 9;
+}
+
+message VuActivitiesSecondGenV2 {
+  bool verified = 1;
+  DateOfDayDownloadedRecordArray date_of_day_downloaded_record_array = 2;
+  OdometerValueMidnightRecordArray odometer_value_midnight_record_array = 3;
+  VuCardIWRecordArray vu_card_iw_record_array = 4;
+  VuActivityDailyRecordArray vu_activity_daily_record_array = 5;
+  VuPlaceDailyWorkPeriodRecordArrayV2 vu_place_daily_work_period_record_array = 6;
+  VuGNSSADRecordArrayV2 vu_gnss_ad_record_array = 7;
+  VuSpecificConditionRecordArray vu_specific_condition_record_array = 8;
+  VuBorderCrossingRecordArray vu_border_crossing_record_array = 9;
+  VuLoadUnloadRecordArray vu_load_unload_record_array = 10;
+  SignatureRecordArray signature_record_array = 11;
+}
+
+message DateOfDayDownloadedRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated int64 records = 4; // DateOfDayDownloaded TimeReal
+}
+
+message OdometerValueMidnightRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated uint32 records = 4; // OdometerValueMidnight OdometerShort [3]byte -> decoded uint32
+}
+
+message VuCardIWRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuCardIWRecordSecondGen records = 4;
+}
+
+message VuCardIWRecordSecondGen {
+  HolderName card_holder_name = 1;
+  FullCardNumberAndGeneration full_card_number_and_generation = 2;
+  int64 card_expiry_date = 3; // TimeReal
+  int64 card_insertion_time = 4; // TimeReal
+  uint32 vehicle_odometer_value_at_insertion = 5; // OdometerShort [3]byte -> decoded uint32
+  uint32 card_slot_number = 6; // CardSlotNumber byte
+  int64 card_withdrawal_time = 7; // TimeReal
+  uint32 vehicle_odometer_value_at_withdrawal = 8; // OdometerShort [3]byte -> decoded uint32
+  PreviousVehicleInfoSecondGen previous_vehicle_info = 9;
+  uint32 manual_input_flag = 10; // ManualInputFlag byte
+}
+
+message PreviousVehicleInfoSecondGen {
+  VehicleRegistrationIdentification vehicle_registration_identification = 1;
+  int64 card_withdrawal_time = 2; // TimeReal
+  uint32 vu_generation = 3; // Generation byte
+}
+
+message VuActivityDailyRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated ActivityChangeInfo records = 4;
+}
+
+message VuPlaceDailyWorkPeriodRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuPlaceDailyWorkPeriodRecordSecondGen records = 4;
+}
+
+message VuPlaceDailyWorkPeriodRecordArrayV2 {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuPlaceDailyWorkPeriodRecordSecondGenV2 records = 4;
+}
+
+message VuPlaceDailyWorkPeriodRecordSecondGen {
+  FullCardNumberAndGeneration full_card_number_and_generation = 1;
+  PlaceRecordSecondGen place_record = 2;
+}
+
+message VuPlaceDailyWorkPeriodRecordSecondGenV2 {
+  FullCardNumberAndGeneration full_card_number_and_generation = 1;
+  PlaceAuthRecord place_auth_record = 2;
+}
+
+message VuGNSSADRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuGNSSADRecord records = 4;
+}
+
+message VuGNSSADRecord {
+  int64 time_stamp = 1; // TimeReal
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot = 2;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot = 3;
+  GNSSPlaceRecord gnss_place_record = 4;
+  uint32 vehicle_odometer_value = 5; // OdometerShort [3]byte -> decoded uint32
+}
+
+message VuGNSSADRecordArrayV2 {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuGNSSADRecordV2 records = 4;
+}
+
+message VuGNSSADRecordV2 {
+  int64 time_stamp = 1; // TimeReal
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot = 2;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot = 3;
+  GNSSPlaceAuthRecord gnss_place_auth_record = 4;
+  uint32 vehicle_odometer_value = 5; // OdometerShort [3]byte -> decoded uint32
+}
+
+message VuSpecificConditionRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated SpecificConditionRecord records = 4;
+}
+
+message VuBorderCrossingRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuBorderCrossingRecord records = 4;
+}
+
+message VuBorderCrossingRecord {
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot = 1;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot = 2;
+  uint32 country_left = 3; // NationNumeric byte
+  uint32 country_entered = 4; // NationNumeric byte
+  GNSSPlaceAuthRecord gnss_place_auth_record = 5;
+  uint32 vehicle_odometer_value = 6;
+}
+
+message VuLoadUnloadRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuLoadUnloadRecord records = 4;
+}
+
+message VuLoadUnloadRecord {
+  int64 time_stamp = 1; // TimeReal
+  uint32 operation_type = 2; // OperationType byte
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot = 3;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot = 4;
+  GNSSPlaceAuthRecord gnss_place_auth_record = 5;
+  uint32 vehicle_odometer_value = 6;
+}
+
+message VuEventsAndFaultsFirstGen {
+  bool verified = 1;
+  VuFaultData vu_fault_data = 2;
+  VuEventData vu_event_data = 3;
+  VuOverSpeedingControlData vu_over_speeding_control_data = 4;
+  VuOverSpeedingEventData vu_over_speeding_event_data = 5;
+  VuTimeAdjustmentData vu_time_adjustment_data = 6;
+  SignatureFirstGen signature = 7;
+}
+
+message VuFaultData {
+  uint32 no_of_vu_faults = 1; // byte
+  repeated VuFaultRecordFirstGen vu_fault_records = 2;
+}
+
+message VuFaultRecordFirstGen {
+  uint32 fault_type = 1; // EventFaultType byte
+  uint32 fault_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 fault_begin_time = 3; // TimeReal
+  int64 fault_end_time = 4; // TimeReal
+  FullCardNumber card_number_driver_slot_begin = 5;
+  FullCardNumber card_number_codriver_slot_begin = 6;
+  FullCardNumber card_number_driver_slot_end = 7;
+  FullCardNumber card_number_codriver_slot_end = 8;
+}
+
+message VuEventData {
+  uint32 no_of_vu_events = 1; // byte
+  repeated VuEventRecordFirstGen vu_event_records = 2;
+}
+
+message VuEventRecordFirstGen {
+  uint32 event_type = 1; // EventFaultType byte
+  uint32 event_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 event_begin_time = 3; // TimeReal
+  int64 event_end_time = 4; // TimeReal
+  FullCardNumber card_number_driver_slot_begin = 5;
+  FullCardNumber card_number_codriver_slot_begin = 6;
+  FullCardNumber card_number_driver_slot_end = 7;
+  FullCardNumber card_number_codriver_slot_end = 8;
+  uint32 similar_events_number = 9; // SimilarEventsNumber byte
+}
+
+message VuOverSpeedingControlData {
+  int64 last_overspeed_control_time = 1; // TimeReal
+  int64 first_overspeed_since = 2; // TimeReal
+  uint32 number_of_overspeed_since = 3; // OverspeedNumber byte
+}
+
+message VuOverSpeedingEventData {
+  uint32 no_of_vu_over_speeding_events = 1; // byte
+  repeated VuOverSpeedingEventRecordFirstGen vu_over_speeding_event_records = 2;
+}
+
+message VuOverSpeedingEventRecordFirstGen {
+  uint32 event_type = 1; // EventFaultType byte
+  uint32 event_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 event_begin_time = 3; // TimeReal
+  int64 event_end_time = 4; // TimeReal
+  uint32 max_speed_value = 5; // SpeedMax Speed byte
+  uint32 average_speed_value = 6; // SpeedAverage Speed byte
+  FullCardNumber card_number_driver_slot_begin = 7;
+  uint32 similar_events_number = 8; // SimilarEventsNumber byte
+}
+
+message VuTimeAdjustmentData {
+  uint32 no_of_vu_time_adj_records = 1; // byte
+  repeated VuTimeAdjustmentRecordFirstGen vu_time_adjustment_records = 2;
+}
+
+message VuTimeAdjustmentRecordFirstGen {
+  int64 old_time_value = 1; // TimeReal
+  int64 new_time_value = 2; // TimeReal
+  string workshop_name = 3; // Name (codepage + [35]byte), decoded string
+  string workshop_address = 4; // Address (codepage + [35]byte), decoded string
+  FullCardNumber workshop_card_number = 5;
+}
+
+message VuEventsAndFaultsSecondGen {
+  bool verified = 1;
+  VuFaultRecordArray vu_fault_record_array = 2;
+  VuEventRecordArray vu_event_record_array = 3;
+  VuOverSpeedingControlDataRecordArray vu_over_speeding_control_data_record_array = 4;
+  VuOverSpeedingEventRecordArray vu_over_speeding_event_record_array = 5;
+  VuTimeAdjustmentRecordArray vu_time_adjustment_record_array = 6;
+  SignatureRecordArray signature_record_array = 7;
+}
+
+message VuEventsAndFaultsSecondGenV2 {
+  bool verified = 1;
+  VuFaultRecordArray vu_fault_record_array = 2;
+  VuEventRecordArray vu_event_record_array = 3;
+  VuOverSpeedingControlDataRecordArray vu_over_speeding_control_data_record_array = 4;
+  VuOverSpeedingEventRecordArray vu_over_speeding_event_record_array = 5;
+  VuTimeAdjustmentRecordArray vu_time_adjustment_record_array = 6;
+  SignatureRecordArray signature_record_array = 7;
+}
+
+message VuFaultRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuFaultRecordSecondGen records = 4;
+}
+
+message VuFaultRecordSecondGen {
+  uint32 fault_type = 1; // EventFaultType byte
+  uint32 fault_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 fault_begin_time = 3;
+  int64 fault_end_time = 4;
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_begin = 5;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot_begin = 6;
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_end = 7;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot_end = 8;
+  ManufacturerSpecificEventFaultData manufacturer_specific_event_fault_data = 9;
+}
+
+message ManufacturerSpecificEventFaultData {
+  uint32 manufacturer_code = 1; // ManufacturerCode byte
+  bytes manufacturer_specific_error_code = 2; // [3]byte
+}
+
+message VuEventRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuEventRecordSecondGen records = 4;
+}
+
+message VuEventRecordSecondGen {
+  uint32 event_type = 1; // EventFaultType byte
+  uint32 event_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 event_begin_time = 3; // TimeReal
+  int64 event_end_time = 4; // TimeReal
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_begin = 5;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot_begin = 6;
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_end = 7;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot_end = 8;
+  uint32 similar_events_number = 9; // SimilarEventsNumber byte
+  ManufacturerSpecificEventFaultData manufacturer_specific_event_fault_data = 10;
+}
+
+message VuOverSpeedingControlDataRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuOverSpeedingControlData records = 4;
+}
+
+message VuOverSpeedingEventRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuOverSpeedingEventRecordSecondGen records = 4;
+}
+
+message VuOverSpeedingEventRecordSecondGen {
+  uint32 event_type = 1; // EventFaultType byte
+  uint32 event_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 event_begin_time = 3; // TimeReal
+  int64 event_end_time = 4; // TimeReal
+  uint32 max_speed_value = 5; // SpeedMax Speed byte
+  uint32 average_speed_value = 6; // SpeedAverage Speed byte
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_begin = 7;
+  uint32 similar_events_number = 8; // SimilarEventsNumber byte
+}
+
+message VuTimeAdjustmentRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuTimeAdjustmentRecordSecondGen records = 4;
+}
+
+message VuTimeAdjustmentRecordSecondGen {
+  int64 old_time_value = 1; // TimeReal
+  int64 new_time_value = 2; // TimeReal
+  string workshop_name = 3; // Name (codepage + [35]byte), decoded string
+  string workshop_address = 4; // Address (codepage + [35]byte), decoded string
+  FullCardNumberAndGeneration workshop_card_number_and_generation = 5;
+}
+
+message VuDetailedSpeedFirstGen {
+  bool verified = 1;
+  VuDetailedSpeedData vu_detailed_speed_data = 2;
+  SignatureFirstGen signature = 3;
+}
+
+message VuDetailedSpeedData {
+  uint32 no_of_speed_blocks = 1; // uint16
+  repeated VuDetailedSpeedBlock vu_detailed_speed_blocks = 2;
+}
+
+message VuDetailedSpeedBlock {
+  int64 speed_block_begin_date = 1; // TimeReal
+  bytes speeds_per_second = 2; // [60]Speed [60]byte
+}
+
+message VuDetailedSpeedSecondGen {
+  bool verified = 1;
+  VuDetailedSpeedBlockRecordArray vu_detailed_speed_block_record_array = 2;
+  SignatureRecordArray signature_record_array = 3;
+}
+
+message VuDetailedSpeedBlockRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuDetailedSpeedBlock records = 4;
+}
+
+message VuTechnicalDataFirstGen {
+  bool verified = 1;
+  VuIdentificationFirstGen vu_identification = 2;
+  SensorPaired sensor_paired = 3;
+  VuCalibrationData vu_calibration_data = 4;
+  SignatureFirstGen signature = 5;
+}
+
+message VuIdentificationFirstGen {
+  string vu_manufacturer_name = 1; // VuManufacturerName Name (codepage + [35]byte), decoded string
+  string vu_manufacturer_address = 2; // VuManufacturerAddress Address (codepage + [35]byte), decoded string
+  string vu_part_number = 3; // VuPartNumber [16]byte -> decoded string
+  ExtendedSerialNumberFirstGen vu_serial_number = 4; // VuSerialNumberFirstGen ExtendedSerialNumberFirstGen
+  VuSoftwareIdentification vu_software_identification = 5;
+  int64 vu_manufacturing_date = 7; // VuManufacturingDate TimeReal
+  string vu_approval_number = 8; // VuApprovalNumberFirstGen [8]byte, decoded string
+}
+
+message VuSoftwareIdentification {
+  bytes vu_software_version = 1; // VuSoftwareVersion [4]byte
+  int64 vu_soft_installation_date = 2; // VuSoftInstallationDate TimeReal
+}
+
+message SensorPaired {
+  ExtendedSerialNumberFirstGen sensor_serial_number = 1; // SensorSerialNumberFirstGen ExtendedSerialNumberFirstGen
+  bytes sensor_approval_number = 2; // SensorApprovalNumberFirstGen [8]byte
+  int64 sensor_pairing_date_first = 3; // SensorPairingDate TimeReal
+}
+
+message VuCalibrationData {
+  uint32 no_of_vu_calibration_records = 1; // byte
+  repeated VuCalibrationRecordFirstGen vu_calibration_records = 2;
+}
+
+message VuCalibrationRecordFirstGen {
+  uint32 calibration_purpose = 1; // CalibrationPurpose byte
+  string workshop_name = 2; // Name (codepage + [35]byte), decoded string
+  string workshop_address = 3; // Address (codepage + [35]byte), decoded string
+  FullCardNumber workshop_card_number = 4;
+  int64 workshop_card_expiry_date = 5; //  TimeReal
+  string vehicle_identification_number = 6; // VehicleIdentificationNumber [17]byte, decoded string
+  VehicleRegistrationIdentification vehicle_registration_identification = 7;
+  uint32 w_vehicle_characteristic_constant = 8; // WVehicleCharacteristicConstant uint16
+  uint32 k_constant_of_recording_equipment = 9; // KConstantOfRecordingEquipment uint16
+  uint32 l_tyre_circumference = 10; // LTyreCircumference uint16
+  string tyre_size = 11; // TyreSize [15]byte, decoded string
+  uint32 authorised_speed = 12; // SpeedAuthorised Speed byte
+  uint32 old_odometer_value = 13; // OdometerShort [3]byte -> decoded uint32
+  uint32 new_odometer_value = 14; // OdometerShort [3]byte -> decoded uint32
+  int64 old_time_value = 15; //  TimeReal
+  int64 new_time_value = 16; //  TimeReal
+  int64 next_calibration_date = 17; //  TimeReal
+}
+
+message VuTechnicalDataSecondGen {
+  bool verified = 1;
+  VuIdentificationRecordArray vu_identification_record_array = 2;
+  VuSensorPairedRecordArray vu_sensor_paired_record_array = 3;
+  VuSensorExternalGNSSCoupledRecordArray vu_sensor_external_gnss_coupled_record_array = 4;
+  VuCalibrationRecordArray vu_calibration_record_array = 5;
+  VuCardRecordArray vu_card_record_array = 6;
+  VuITSConsentRecordArray vu_its_consent_record_array = 7;
+  VuPowerSupplyInterruptionRecordArray vu_power_supply_interruption_record_array = 8;
+  SignatureRecordArray signature_record_array = 9;
+}
+
+message VuTechnicalDataSecondGenV2 {
+  bool verified = 1;
+  VuIdentificationRecordArrayV2 vu_identification_record_array = 2;
+  VuSensorPairedRecordArray vu_sensor_paired_record_array = 3;
+  VuSensorExternalGNSSCoupledRecordArray vu_sensor_external_gnss_coupled_record_array = 4;
+  VuCalibrationRecordArrayV2 vu_calibration_record_array = 5;
+  VuCardRecordArray vu_card_record_array = 6;
+  VuITSConsentRecordArray vu_its_consent_record_array = 7;
+  VuPowerSupplyInterruptionRecordArray vu_power_supply_interruption_record_array = 8;
+  SignatureRecordArray signature_record_array = 9;
+}
+
+message VuIdentificationRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuIdentificationSecondGen records = 4;
+}
+
+message VuIdentificationSecondGen {
+  string vu_manufacturer_name = 1; // VuManufacturerName Name (codepage + [35]byte), decoded string
+  string vu_manufacturer_address = 2; // VuManufacturerAddress Address (codepage + [35]byte), decoded string
+  string vu_part_number = 3; // VuPartNumber [16]byte, decoded string
+  ExtendedSerialNumberSecondGen vu_serial_number = 4; // VuSerialNumberSecondGen
+  VuSoftwareIdentification vu_software_identification = 5;
+  int64 vu_manufacturing_date = 6; // VuManufacturingDate TimeReal
+  string vu_approval_number = 7; // VuApprovalNumberSecondGen [16]byte, decoded string
+  uint32 vu_generation = 8; // Generation byte
+  uint32 vu_ability = 9; // VuAbility byte
+}
+
+message VuIdentificationRecordArrayV2 {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuIdentificationSecondGenV2 records = 4;
+}
+
+message VuIdentificationSecondGenV2 {
+  string vu_manufacturer_name = 1; // VuManufacturerName Name (codepage + [35]byte), decoded string
+  string vu_manufacturer_address = 2; // VuManufacturerAddress Address (codepage + [35]byte), decoded string
+  string vu_part_number = 3; // VuPartNumber [16]byte, decoded string
+  ExtendedSerialNumberSecondGen vu_serial_number = 4; // VuSerialNumberSecondGen
+  VuSoftwareIdentification vu_software_identification = 5;
+  int64 vu_manufacturing_date = 6; // VuManufacturingDate TimeReal
+  string vu_approval_number = 7; // VuApprovalNumberSecondGen [16]byte, decoded string
+  uint32 vu_generation = 8; // Generation byte
+  uint32 vu_ability = 9; // VuAbility byte
+  string vu_digital_map_version = 10; // VuDigitalMapVersion [12]byte, decoded string
+}
+
+message VuSensorPairedRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated SensorPairedRecord records = 4;
+}
+
+message SensorPairedRecord {
+  ExtendedSerialNumberSecondGen sensor_serial_number = 1; // SensorSerialNumberSecondGen ExtendedSerialNumberSecondGen
+  bytes sensor_approval_number = 2; // SensorApprovalNumberSecondGen [16]byte
+  int64 sensor_pairing_date = 3; // SensorPairingDate TimeReal
+}
+
+message VuSensorExternalGNSSCoupledRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated SensorExternalGNSSCoupledRecord records = 4;
+}
+
+message SensorExternalGNSSCoupledRecord {
+  ExtendedSerialNumberSecondGen sensor_serial_number = 1; // SensorGNSSSerialNumber ExtendedSerialNumberSecondGen
+  string sensor_approval_number = 2; // SensorExternalGNSSApprovalNumber [16]byte, decoded string
+  int64 sensor_coupling_date = 3; // SensorGNSSCouplingDate TimeReal
+}
+
+message VuCalibrationRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuCalibrationRecordSecondGen records = 4;
+}
+
+message VuCalibrationRecordSecondGen {
+  uint32 calibration_purpose = 1; // CalibrationPurpose byte
+  string workshop_name = 2; // Name (codepage + [35]byte), decoded string
+  string workshop_address = 3; // Address (codepage + [35]byte), decoded string
+  FullCardNumber workshop_card_number = 4;
+  int64 workshop_card_expiry_date = 5; //  TimeReal
+  string vehicle_identification_number = 6; // VehicleIdentificationNumber [17]byte, decoded string
+  VehicleRegistrationIdentification vehicle_registration_identification = 7;
+  uint32 w_vehicle_characteristic_constant = 8; // WVehicleCharacteristicConstant uint16
+  uint32 k_constant_of_recording_equipment = 9; // KConstantOfRecordingEquipment uint16
+  uint32 l_tyre_circumference = 10; // LTyreCircumference uint16
+  string tyre_size = 11; // TyreSize [15]byte, decoded string
+  uint32 authorised_speed = 12; // SpeedAuthorised Speed byte
+  uint32 old_odometer_value = 13; // OdometerShort [3]byte -> decoded uint32
+  uint32 new_odometer_value = 14; // OdometerShort [3]byte -> decoded uint32
+  int64 old_time_value = 15; //  TimeReal
+  int64 new_time_value = 16; //  TimeReal
+  int64 next_calibration_date = 17; //  TimeReal
+  repeated SealRecord seal_data_vu = 18; // SealDataVu [5]struct{...}
+}
+
+message VuCalibrationRecordArrayV2 {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuCalibrationRecordSecondGenV2 records = 4;
+}
+
+message VuCalibrationRecordSecondGenV2 {
+  uint32 calibration_purpose = 1; // CalibrationPurpose byte
+  string workshop_name = 2; // Name (codepage + [35]byte), decoded string
+  string workshop_address = 3; // Address (codepage + [35]byte), decoded string
+  FullCardNumber workshop_card_number = 4;
+  int64 workshop_card_expiry_date = 5; //  TimeReal
+  string vehicle_identification_number = 6; // VehicleIdentificationNumber [17]byte, decoded string
+  VehicleRegistrationIdentification vehicle_registration_identification = 7;
+  uint32 w_vehicle_characteristic_constant = 8; // WVehicleCharacteristicConstant uint16
+  uint32 k_constant_of_recording_equipment = 9; // KConstantOfRecordingEquipment uint16
+  uint32 l_tyre_circumference = 10; // LTyreCircumference uint16
+  string tyre_size = 11; // TyreSize [15]byte, decoded string
+  uint32 authorised_speed = 12; // SpeedAuthorised Speed byte
+  uint32 old_odometer_value = 13; // OdometerShort [3]byte -> decoded uint32
+  uint32 new_odometer_value = 14; // OdometerShort [3]byte -> decoded uint32
+  int64 old_time_value = 15; //  TimeReal
+  int64 new_time_value = 16; //  TimeReal
+  int64 next_calibration_date = 17; //  TimeReal
+  ExtendedSerialNumberSecondGen sensor_serial_number = 18; // SensorSerialNumberSecondGen ExtendedSerialNumberSecondGen
+  ExtendedSerialNumberSecondGen sensor_gnss_serial_number = 19; // SensorGNSSSerialNumber ExtendedSerialNumberSecondGen
+  ExtendedSerialNumberSecondGen rcm_serial_number = 20; // RemoteCommunicationModuleSerialNumber ExtendedSerialNumberSecondGen
+  repeated SealRecord seal_data_vu = 21; // SealDataVu [5]struct{...}
+  uint32 by_default_load_type = 22; // LoadType byte
+  uint32 calibration_country = 23; // NationNumeric byte
+  int64 calibration_country_timestamp = 24; // TimeReal
+}
+
+message SealRecord {
+  uint32 equipment_type = 1; // EquipmentType byte
+  ExtendedSealIdentifier extended_seal_identifier = 2;
+}
+
+message ExtendedSealIdentifier {
+  bytes manufacturer_code = 1; // [2]byte
+  bytes seal_identifier = 2; // [8]byte
+}
+
+message VuCardRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuCardRecord records = 4;
+}
+
+message VuCardRecord {
+  FullCardNumberAndGeneration card_number_and_generation_information = 1;
+  ExtendedSerialNumberSecondGen card_extended_serial_number = 2;
+  bytes card_stucture_version = 3; // [2]byte
+  string card_number = 4; // CardNumber [16]byte, decoded string
+}
+
+message VuITSConsentRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuITSConsentRecord records = 4;
+}
+
+message VuITSConsentRecord {
+  FullCardNumberAndGeneration card_number_and_gen = 1;
+  uint32 consent = 2; // byte, actual boolean
+}
+
+message VuPowerSupplyInterruptionRecordArray {
+  uint32 record_type = 1; // RecordType byte
+  uint32 record_size = 2; // uint16
+  uint32 no_of_records = 3; // uint16
+  repeated VuPowerSupplyInterruptionRecord records = 4;
+}
+
+message VuPowerSupplyInterruptionRecord {
+  uint32 event_type = 1; // EventFaultType byte
+  uint32 event_record_purpose = 2; // EventFaultRecordPurpose byte
+  int64 event_begin_time = 3; // TimeReal
+  int64 event_end_time = 4; // TimeReal
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_begin = 5;
+  FullCardNumberAndGeneration card_number_and_gen_driver_slot_end = 6;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot_begin = 7;
+  FullCardNumberAndGeneration card_number_and_gen_codriver_slot_end = 8;
+  uint32 similar_events_number = 9; // SimilarEventsNumber byte
+}
