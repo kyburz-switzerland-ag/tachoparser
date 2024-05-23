@@ -3005,9 +3005,8 @@ type SpecificConditionRecord struct {
 
 // Appendix 1 2.153
 type SpecificConditionsFirstGen struct {
-	Verified                     bool                         `aper:"-" json:"verified"`
-	ConditionPointerNewestRecord NoOfSpecificConditionRecords `json:"condition_pointer_newest_record"`
-	SpecificConditionRecords     []SpecificConditionRecord    `json:"specific_condition_records"`
+	Verified                 bool                      `aper:"-" json:"verified"`
+	SpecificConditionRecords []SpecificConditionRecord `aper:"size=56" json:"specific_condition_records"`
 }
 
 type SpecificConditionsSecondGen struct {

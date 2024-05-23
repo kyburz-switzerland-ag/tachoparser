@@ -2676,9 +2676,8 @@ func (s *server) ParseCard(ctx context.Context, req *pb.ParseCardRequest) (*pb.P
 		}
 	}
 	specificConditions1 := &pb.SpecificConditionsFirstGen{
-		Verified:                     c.SpecificConditionsFirstGen.Verified,
-		ConditionPointerNewestRecord: uint32(c.SpecificConditionsFirstGen.ConditionPointerNewestRecord),
-		SpecificConditionRecords:     specificConditionRecords1,
+		Verified:                 c.SpecificConditionsFirstGen.Verified,
+		SpecificConditionRecords: specificConditionRecords1,
 	}
 	specificConditionRecords2 := make([]*pb.SpecificConditionRecord, len(c.SpecificConditionsSecondGen.SpecificConditionRecords))
 	for i, r := range c.SpecificConditionsSecondGen.SpecificConditionRecords {
