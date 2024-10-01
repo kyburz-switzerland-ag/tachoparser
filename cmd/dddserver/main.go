@@ -2456,7 +2456,7 @@ func (s *server) ParseCard(ctx context.Context, req *pb.ParseCardRequest) (*pb.P
 			}
 		}
 		presence, _ := r.ActivityDailyPresenceCounter.Decode()
-		activityDailyRecords1[i] = &pb.CardActivityDailyRecord{
+		activityDailyRecords2[i] = &pb.CardActivityDailyRecord{
 			ActivityPreviousRecordLength: uint32(r.ActivityPreviousRecordLength),
 			ActivityRecordLength:         uint32(r.ActivityRecordLength),
 			ActivityRecordDate:           r.ActivityRecordDate.Decode().Unix(),
