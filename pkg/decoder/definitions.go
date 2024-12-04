@@ -3042,7 +3042,8 @@ func (t TimeReal) Decode() time.Time {
 	b := bytes.NewBuffer([]byte{t.Timedata[0], t.Timedata[1], t.Timedata[2], t.Timedata[3]})
 	var tVal uint32
 	binary.Read(b, binary.BigEndian, &tVal)
-	return time.Unix(int64(tVal), 0)
+
+	return time.Unix(int64(tVal), 0).UTC()
 }
 
 func (t TimeReal) MarshalJSON() ([]byte, error) {
