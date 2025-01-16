@@ -65,14 +65,14 @@ The Dockerfile in the main directory will create a docker image containing only 
 There are unit tests for decoding different data types.
 To run, type
 ```bash
-> go test
+go test
 ```
 
 ### INSTALLATION
 
-Put the executable `cmds/dddparser/dddparser` to a location that is in your `PATH`, f.e.
+Put the executable `cmd/dddparser/dddparser` to a location that is in your `PATH`, f.e.
 ```bash
-> sudo cp cmds/dddparser/dddparser /usr/local/bin
+sudo cp cmd/dddparser/dddparser /usr/local/bin
 ```
 
 ## USAGE
@@ -83,7 +83,7 @@ The executable `dddparser` reads raw data from `STDIN` and outputs JSON data to 
 
 Example:
 ```bash
-> cat tachodata.ddd | ./dddparser -vu
+cat tachodata.ddd | ./dddparser -vu
 ```
 
 The executable `dddsimple` reads raw data from `STDIN` and outputs JSON data to `STDOUT`, warnings and errors are sent to `STDERR`.
@@ -92,23 +92,23 @@ The executable `dddsimple` reads raw data from `STDIN` and outputs JSON data to 
 
 Example:
 ```bash
-> cat driverdata.ddd | ./dddsimple -card
+cat driverdata.ddd | ./dddsimple -card
 ```
 
 The executable `dddserver` starts a gRPC server which listens on port 50055 for incoming requests. The server can be started with the following command:
 ```bash
-> ./dddserver
+./dddserver
 ```
 To change the port, use the `-listen` option:
 ```bash
-> ./dddserver -listen :50056
+./dddserver -listen :50056
 ```
 
 ## Tipps and Tricks
 
 For output formatting and further processing, [jq](https://stedolan.github.io/jq/) is recommended, f.e.:
 ```bash
-> cat tachodata.ddd | dddparser -vu | jq . | less
+cat tachodata.ddd | dddparser -vu | jq . | less
 ```
 
 ## TODO
